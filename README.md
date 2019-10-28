@@ -10,7 +10,7 @@ pip install -r requirements.txt
 In order to use this repository, you will need to create a Telegram Bot. Here are the steps:
 1. Open Telegram App
 2. Say `/start` to BotFather, and follow the instructions
-3. Once done, BotFather will give you the `token`
+3. Once done, BotFather will give you the `token` and a link to talk to the bot
 4. Talk to your bot once. Be gentle!
 5. Get your `chat_id`: 
 ```shell script
