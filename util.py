@@ -71,7 +71,8 @@ class VintedItem:
 
 
 class CacheHandler:
-    def __init__(self, path='.cache'):
+    def __init__(self, path=os.path.join(os.environ["HOME"], '.cache', 'vinted_alerts.cache')):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         self.path = path
         if os.path.exists(path):
             with open(path, 'r') as file:
