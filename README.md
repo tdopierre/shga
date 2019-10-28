@@ -40,6 +40,14 @@ Example: `https://www.vinted.fr/vetements?order=newest_first`
 
 
 ## Run the app
+To run the app once, simply use the following command:
 ```shell script
 python app.py
+```
+If you want to run it on a regular basis, you can use a scheduling tool like [cron](https://en.wikipedia.org/wiki/Cron).
+
+Example line in `crontab` file:
+
+```shell script
+* * * * * cd ~/Projects/vinted_alerts && python app.py
 ```
