@@ -30,7 +30,7 @@ The config file should have the following structure:
   "vinted_urls": [
     "<URL_1>",
     "<URL_2>",
-    ...
+    "..."
   ]
 }
 ```
