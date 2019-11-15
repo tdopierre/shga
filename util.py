@@ -26,12 +26,7 @@ def get_lbc_items_from_url(url):
     headers = {
         # 'User-Agent': '*',
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36 OPR/64.0.3417.47",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "fr-FR,en;q=0.5",
-        "Accept-Encoding": "gzip, deflate",
-        "Connection": "keep-alive",
-        "Cache-Control": "max-age=0",
-        "Upgrade-Insecure-Requests": "1",
     }
     session.headers.update(headers)
 
@@ -54,7 +49,7 @@ class LBCItem:
         try:
             price = clean_txt(item.find_all("span", {"itemprop": "priceCurrency"})[0].text)
         except:
-            price=None
+            price = None
         url = 'https://www.leboncoin.fr' + item.find_all("a", {"class": "clearfix trackable"})[0].attrs['href']
 
         return cls(
