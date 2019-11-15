@@ -1,9 +1,7 @@
 # SHGA
 **S**econd **H**and **G**oods **Alerts**
 
-App which sends notifications when a new item matching a pre-defined search on Second-Hand market websites appears
-
-Supported websites : 
+Notifications for Second-Hand market websites:
 - [Vinted](https://www.vinted.fr/)
 - [Leboncoin](https://www.leboncoin.fr/)
 
