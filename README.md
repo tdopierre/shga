@@ -1,10 +1,22 @@
-# Vinted Alerts
-App which sends notifications when a new Vinted item matching a pre-defined search appears
+# SHGA
+**S**econd **H**and **G**oods **Alerts**
+
+App which sends notifications when a new item matching a pre-defined search on Second-Hand market websites appears
+
+Supported websites : 
+- [Vinted](https://www.vinted.fr/)
+- [Leboncoin](https://www.leboncoin.fr/)
 
 # Get started
-## Install requirements
+## Clone the repository
 ```shell script
-pip install -r requirements.txt
+mkdir -p ~/Projects && cd ~/Projects
+git clone https://github.com/tdopierre/shga.git && cd shga
+```
+## Setup environment & project requirements
+```shell script
+python3 -m virtualenv .venv --python=/usr/bin/python3
+.venv/bin/pip install -r requirements.txt
 ```
 ## Setup Telegram Bot
 In order to use this repository, you will need to create a Telegram Bot. Here are the steps:
@@ -28,26 +40,26 @@ The config file should have the following structure:
   "telegram_token": "<token>",
   "telegram_chat_id": "<chat_id>",
   "vinted_urls": [
-    "<URL_1>",
-    "<URL_2>",
+    "https://www.vinted.fr/vetements?order=newest_first",
     "..."
+  ],
+  "lbc_urls": [
+    "https://www.leboncoin.fr/annonces/offres/ile_de_france/",
+    "..."  
   ]
 }
 ```
-The `vinted_urls` field lists all urls corresponding to searches you want to monitor. 
-
-Example: `https://www.vinted.fr/vetements?order=newest_first`
 
 
 ## Run the app
 To run the app once, simply use the following command:
 ```shell script
-python app.py
+.venv/bin/python app.py
 ```
 If you want to run it on a regular basis, you can use a scheduling tool like [cron](https://en.wikipedia.org/wiki/Cron).
 
 Example line in `crontab` file:
 
 ```shell script
-* * * * * cd ~/Projects/vinted_alerts && python app.py
+* * * * * cd ~/Projects/shga && .venv/bin/python app.py
 ```
