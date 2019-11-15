@@ -34,7 +34,6 @@ def get_lbc_items_from_url(url):
         "Upgrade-Insecure-Requests": "1",
     }
     session.headers.update(headers)
-    url = "https://www.leboncoin.fr/recherche/?text=surly"
 
     r = session.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -52,7 +51,10 @@ class LBCItem:
     @classmethod
     def load_from_page(cls, item):
         name = clean_txt(item.find_all("span", {"itemprop": "name"})[0].text)
-        price = clean_txt(item.find_all("span", {"itemprop": "priceCurrency"})[0].text)
+        try:
+            price = clean_txt(item.find_all("span", {"itemprop": "priceCurrency"})[0].text)
+        except:
+            price=None
         url = 'https://www.leboncoin.fr' + item.find_all("a", {"class": "clearfix trackable"})[0].attrs['href']
 
         return cls(
@@ -126,7 +128,7 @@ class VintedItem:
 
 
 class CacheHandler:
-    def __init__(self, path=os.path.join(os.environ["HOME"], '.cache', 'vinted_alerts.cache')):
+    def __init__(self, path=os.path.join(os.environ["HOME"], '.cache', 'shga.cache')):
         os.makedirs(os.path.dirname(path), exist_ok=True)
         self.path = path
         if os.path.exists(path):
