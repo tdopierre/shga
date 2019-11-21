@@ -37,16 +37,25 @@ The config file should have the following structure:
 {
   "telegram_token": "<token>",
   "telegram_chat_id": "<chat_id>",
-  "vinted_urls": [
-    "https://www.vinted.fr/vetements?order=newest_first",
-    "..."
-  ],
-  "lbc_urls": [
-    "https://www.leboncoin.fr/annonces/offres/ile_de_france/",
-    "..."  
-  ]
+  "vinted": {
+      "urls": [
+          "https://www.vinted.fr/vetements?order=newest_first",
+          "..."
+      ]
+  } ,
+  "lbc": {
+      "urls": [
+          "https://www.leboncoin.fr/annonces/offres/ile_de_france/",
+          "..."  
+      ],
+      "login": "user@name.me",
+      "password": "password123",
+      "use_saved_searches": true
+  }
 }
 ```
+In the `lbc` section, you can specify your login & password if you want 
+the app to scan the results of your saved searches.
 
 
 ## Run the app
