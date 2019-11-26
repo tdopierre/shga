@@ -133,12 +133,24 @@ class LBCItem:
 
     @classmethod
     def load_from_lbc_api(cls, item):
+        try:
+            location = item['location']
+            location_list = list()
+            if 'city_label' in location:
+                location_list.append(location['city_label'])
+            if 'department_name' in location:
+                location_list.append(location['department_name'])
+            if 'region_name' in location:
+                location_list.append(location['region_name'])
+            location_str = ' / '.join(location_list)
+        except:
+            location_str = None
+
         return cls(
             title=item.get('subject'),
             price=item.get('price', [None])[0],
             url=item.get('url'),
-            location=f"{item['location']['city_label']} / {item['location']['department_name']} / {item['location']['region_name']}"
-            if 'location' in item else None,
+            location=location_str,
             first_publication_date=item.get("first_publication_date"),
             category=item.get("category_name"),
             description=item.get("body"),
