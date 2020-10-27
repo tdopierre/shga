@@ -3,7 +3,7 @@ bs4==0.0.1
 certifi==2019.9.11
 cffi==1.13.1
 chardet==3.0.4
-cryptography==2.8
+cryptography==3.2
 future==0.18.1
 idna==2.8
 pycparser==2.19
